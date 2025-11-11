@@ -1,0 +1,7 @@
+[theme]
+base="dark"
+primaryColor="#8A7FFF"              # Quantum violet
+backgroundColor="#0E0F1A"           # Night-sky
+secondaryBackgroundColor="#14162A"  # Panels
+textColor="#E8EAF6"
+font="sans serif"
