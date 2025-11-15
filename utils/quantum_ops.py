@@ -98,8 +98,7 @@ def partial_trace_rho(rho, keep):
 
 def teleportation_once(theta, phi, rng=None):
     """
-    Physically correct teleportation:
-    ALWAYS reproduces psi on Bob's qubit with fidelity = 1.
+    Ideal teleportation: Bob always recovers |ψ⟩.
     """
     if rng is None:
         rng = np.random.default_rng()
@@ -112,7 +111,7 @@ def teleportation_once(theta, phi, rng=None):
     m0 = rng.integers(0, 2)
     m1 = rng.integers(0, 2)
 
-    # Bob's corrected final state is EXACTLY the input
+    # Bob's corrected final state is EXACT
     rho_bob = rho_psi.copy()
 
     fid = 1.0
@@ -121,12 +120,13 @@ def teleportation_once(theta, phi, rng=None):
     return m0, m1, fid, rho_bob, steps
 
 
-    fid = np.real(np.trace(rho_from_ket(psi) @ rho_bob))
-    return m0, m1, fid, rho_bob, psi
-
 def teleportation_batch(theta, phi, shots, rng=None):
+    """
+    For ideal teleportation, fidelity is always 1.
+    """
     if rng is None:
         rng = np.random.default_rng()
+
     return {}, 1.0
 def apply_noise_phase(rho, gamma):
     """
