@@ -1,0 +1,86 @@
+/* ===============================
+   GLOBAL LIGHT THEME FOR STREAMLIT
+   Clean, modern, soft colors
+   =============================== */
+
+body, .block-container {
+    background-color: #F7F9FC !important;
+    color: #1A1A1A !important;
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: #1A1A1A !important;
+    font-family: "Inter", sans-serif;
+}
+
+/* Paragraphs */
+p, li {
+    font-size: 1.05rem !important;
+    color: #333 !important;
+}
+
+/* Cards / Analogy Boxes */
+.analogy-box {
+    background: #FFFFFF !important;
+    border-radius: 14px;
+    padding: 18px;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+/* Big Graph Box */
+.big-graph {
+    background: #FFFFFF !important;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+}
+
+/* Buttons */
+.stButton>button {
+    background: #2B6CB0 !important;
+    color: white !important;
+    border-radius: 8px !important;
+    padding: 0.55rem 1.2rem !important;
+    border: none !important;
+    font-size: 1rem !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.stButton>button:hover {
+    background: #2C5282 !important;
+}
+
+/* Sliders */
+.css-1cpxqw2, .stSlider {
+    color: #1A1A1A !important;
+}
+
+/* Input fields */
+.stNumberInput input, .stTextInput input {
+    background: #FFFFFF !important;
+    border-radius: 6px !important;
+    border: 1px solid #CBD5E0 !important;
+}
+
+/* Expander */
+.streamlit-expanderHeader {
+    background: #EDF2F7 !important;
+    color: #1A1A1A !important;
+}
+
+/* Divider */
+hr {
+    border: 0;
+    height: 1px;
+    background: #E2E8F0;
+    margin: 20px 0;
+}
+
+/* Footer tip text */
+.q-cap {
+    font-size: 0.9rem;
+    color: #4A5568 !important;
+}

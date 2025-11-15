@@ -1,37 +1,120 @@
 import streamlit as st
-from utils.ui import inject_quantum_theme, page_header
 
-st.set_page_config(page_title="Quantum Playground", page_icon="🧪", layout="wide")
-inject_quantum_theme()
+st.set_page_config(
+    page_title="Quantum Playground",
+    page_icon="⚛️",
+    layout="wide"
+)
 
-page_header("🧪 Quantum Playground", "An interactive lab to *see* and *feel* quantum mechanics.")
-st.markdown("---")
+# Load global theme (light/dark)
+try:
+    with open("styles/theme_light.css") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+except:
+    pass
+
+# ====== PAGE LAYOUT ======
+
+# Center content
+st.markdown("""
+<style>
+.main-container {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 40px;
+}
+.big-title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align:center;
+    margin-bottom: 0.2rem;
+}
+.subtitle {
+    text-align:center;
+    font-size: 1.2rem;
+    margin-bottom: 2.2rem;
+    color: #888;
+}
+.section-title {
+    font-size: 1.6rem;
+    font-weight:600;
+    margin-top: 2.5rem;
+}
+.exp-card {
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    padding: 18px;
+    border: 1px solid rgba(200,200,255,0.15);
+    margin-bottom: 20px;
+}
+.exp-button {
+    background:#2B6CB0 !important;
+    color:white !important;
+    padding:0.65rem 1.2rem !important;
+    border-radius:8px !important;
+    font-size:1rem !important;
+}
+.exp-button:hover {
+    background:#2C5282 !important;
+}
+</style>
+<div class="main-container">
+""", unsafe_allow_html=True)
+
+# ===== TITLE =====
+st.markdown("<div class='big-title'>Quantum Playground</div>", unsafe_allow_html=True)
+st.markdown("<div class='subtitle'>Interactive quantum concepts explained visually through analogies.</div>", unsafe_allow_html=True)
+
+
+# ===== QUICK INTRO =====
+st.markdown("## What you’ll explore")
+st.markdown("""
+This playground covers **four core quantum experiments**, each explained using
+a **simple analogy**, a **clean visual**, and a **short scientific explanation**:
+
+1. **Entanglement & Correlation**  
+   How two particles behave like perfectly coordinated random coins.
+
+2. **CHSH Inequality**  
+   A test proving quantum correlations exceed all classical models.
+
+3. **Quantum Teleportation**  
+   Transferring a quantum state using entanglement + two classical bits.
+
+4. **Decoherence & Noise**  
+   How quantum states lose their structure when interacting with the environment.
+""")
+
+
+# ===== EXPERIMENT BUTTONS =====
+
+st.markdown("## Choose an Experiment")
 
 col1, col2 = st.columns(2)
-with col1:
-    st.markdown("### 🌀 Entanglement & Correlation (Bell Test)")
-    st.write("Explore *spooky* correlations. Adjust angles and watch correlations follow **cos(Δ)**.")
-    st.link_button("Open module", "1_Entanglement_&_Correlation_(Bell_Test)")
 
-    st.markdown("### 🌈 CHSH Inequality: Quantum vs Classical")
-    st.write("Build **S = E(a,b)+E(a,b′)+E(a′,b)−E(a′,b′)** and **see** the violation of the classical bound 2.")
-    st.link_button("Open module", "2_CHSH_Inequality")
+with col1:
+    st.markdown("### ⚛️ Entanglement & Correlation")
+    st.markdown("Two entangled particles produce coordinated outcomes stronger than any classical system.")
+    st.link_button("Open Entanglement Demo", "1_Entanglement_&_Correlation_(Bell_Test)", type="primary")
+
+    st.markdown("---")
+
+    st.markdown("### 🌈 CHSH Inequality")
+    st.markdown("Show that quantum predictions violate classical realism using four measurement settings.")
+    st.link_button("Open CHSH Experiment", "2_CHSH_Inequality")
 
 with col2:
-    st.markdown("### ✨ Quantum Teleportation Protocol")
-    st.write("Step through how |ψ⟩ moves from Alice to Bob using **entanglement + 2 classical bits**.")
-    st.link_button("Open module", "3_Quantum_Teleportation")
+    st.markdown("### ✨ Quantum Teleportation")
+    st.markdown("Watch how a secret quantum state is transferred using shared entanglement.")
+    st.link_button("Open Teleportation Demo", "3_Quantum_Teleportation")
 
-    st.markdown("### ☁️ Decoherence & Noise Models")
-    st.write("Watch superpositions fade under **phase** and **amplitude** damping with a Bloch-sphere animation.")
-    st.link_button("Open module", "4_Decoherence_&_Noise")
+    st.markdown("---")
 
-st.markdown("---")
-st.subheader("🧭 Your Quantum Journey")
-st.markdown("""
-1. **Entanglement** — What does it mean to share a fate?  
-2. **CHSH** — How do we *prove* nature isn't classical?  
-3. **Teleportation** — How can information move without particles moving?  
-4. **Decoherence** — Why everyday life looks classical.  
-""")
-st.caption("Quantum Playground · Built with ❤️ using Streamlit · NumPy · Plotly")
+    st.markdown("### ☁️ Decoherence & Noise")
+    st.markdown("See how quantum states fade when exposed to the environment.")
+    st.link_button("Open Noise Simulator", "4_Decoherence_&_Noise")
+
+
+# Closing wrapper
+st.markdown("</div>", unsafe_allow_html=True)
