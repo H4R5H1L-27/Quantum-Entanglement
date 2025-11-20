@@ -96,24 +96,32 @@ col1, col2 = st.columns(2)
 with col1:
     st.markdown("### ⚛️ Entanglement & Correlation")
     st.markdown("Two entangled particles produce coordinated outcomes stronger than any classical system.")
-    st.link_button("Open Entanglement Demo", "1_Entanglement_&_Correlation_(Bell_Test)", type="primary")
+
+    if st.button("Open Entanglement Demo"):
+        st.switch_page("pages/1_Entanglement_&_Correlation_(Bell_Test).py")
 
     st.markdown("---")
 
     st.markdown("### 🌈 CHSH Inequality")
     st.markdown("Show that quantum predictions violate classical realism using four measurement settings.")
-    st.link_button("Open CHSH Experiment", "2_CHSH_Inequality")
+
+    if st.button("Open CHSH Experiment"):
+        st.switch_page("pages/2_CHSH_Inequality.py")
 
 with col2:
     st.markdown("### ✨ Quantum Teleportation")
     st.markdown("Watch how a secret quantum state is transferred using shared entanglement.")
-    st.link_button("Open Teleportation Demo", "3_Quantum_Teleportation")
+
+    if st.button("Open Teleportation Demo"):
+        st.switch_page("pages/3_Quantum_Teleportation.py")
 
     st.markdown("---")
 
     st.markdown("### ☁️ Decoherence & Noise")
     st.markdown("See how quantum states fade when exposed to the environment.")
-    st.link_button("Open Noise Simulator", "4_Decoherence_&_Noise")
+
+    if st.button("Open Noise Simulator"):
+        st.switch_page("pages/4_Decoherence_&_Noise.py")
 
 
 # Closing wrapper
