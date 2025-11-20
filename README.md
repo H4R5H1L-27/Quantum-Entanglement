@@ -9,7 +9,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Pages (placeholders for now):
+Pages:
 1. Entanglement & Correlation (Bell Test)
 2. CHSH Inequality: Quantum vs Classical
 3. Quantum Teleportation Protocol
